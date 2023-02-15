@@ -1,14 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Video, AVPlaybackStatus } from 'expo-av';
-import demoVid from '../../img/demoClipup.mp4';
+import demoVid from '../../vid/demoClipup.mp4';
 //videoplayer
 import { FontAwesome5 } from '@expo/vector-icons';
 import Reactions from './Reactions';
+import Description from './Description';
 
 const ElementPlayer = () => {
 
-  //video
   const video = useRef()
 
   const [status, setStatus] = useState({});
@@ -36,6 +36,7 @@ const ElementPlayer = () => {
           <FontAwesome5 name="play" size={70} color="white" />
         </TouchableOpacity>
         <Reactions />
+        <Description/>
       </View>
     </>
   );

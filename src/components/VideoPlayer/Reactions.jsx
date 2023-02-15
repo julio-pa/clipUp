@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import avatar from '../../img/Logo-Dev.png'
 
 const Reactions = () => {
 
@@ -9,6 +10,9 @@ const Reactions = () => {
 
   return (
     <View style={styles.reactions}>
+      <View style={styles.avatar}>
+        <Image source={avatar} style={styles.img} />
+      </View>
       <Actions icon={<AntDesign onPress={() => setLike(!like)}  name="heart" size={50} color={like ? 'red' : 'white'} />}/>
       <Actions icon={<FontAwesome name="commenting" size={50} color="white" />}/>
       <Actions icon={<FontAwesome name="share" size={50} color="white" />}/>
@@ -24,7 +28,7 @@ const styles = StyleSheet.create({
     columnGap: 3,
     alignItems:'center',
     right: 10,
-    bottom:200,
+    bottom:130,
   },
   actions:{
     display: 'flex',
@@ -34,6 +38,22 @@ const styles = StyleSheet.create({
   textActions:{
     color:'#fff'
   },
+  avatar:{
+    display: 'flex',
+    alignItems:'center',
+    justifyContent: 'center',
+    borderColor: '#fff',
+    borderWidth: 1,
+    height: 60,
+    width: 60,
+    borderRadius: 50,
+    marginBottom: 15,
+  },
+  img:{
+    width: 50,
+    height: 50,
+    resizeMode: 'contain'
+  }
 })
 
 // const randomNumber = () => Math.floor(Math.random() * 10000);
