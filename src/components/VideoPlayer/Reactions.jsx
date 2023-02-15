@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
 const Reactions = () => {
+
+  const [like, setLike] = useState(false);
+
   return (
     <View style={styles.reactions}>
-      <Actions icon={<AntDesign  name="heart" size={50} color="white" />}/>
+      <Actions icon={<AntDesign onPress={() => setLike(!like)}  name="heart" size={50} color={like ? 'red' : 'white'} />}/>
       <Actions icon={<FontAwesome name="commenting" size={50} color="white" />}/>
       <Actions icon={<FontAwesome name="share" size={50} color="white" />}/>
     </View>
