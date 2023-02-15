@@ -1,6 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
+import { Octicons } from '@expo/vector-icons';
+import HeaderProfile from './HeaderProfile';
+import ImageProfile from './ImageProfile';
+import ButtonsProfile from './ButtonsProfile';
+import ValuesProfile from './ValuesProfile';
+import BioProfile from './BioProfile';
+import VideosProfile from './VideosProfile';
 
 
 const Profile = ({ navigation, route }) => {
@@ -10,8 +17,8 @@ const Profile = ({ navigation, route }) => {
   }
   const foo = () => {
     return (
-      <View>
-        <Text>Is better</Text>
+      <View style={styles.slide}>
+        <Octicons name="video" size={50} color="black" />
       </View>
     )
   }
@@ -19,8 +26,13 @@ const Profile = ({ navigation, route }) => {
   return (
     <GestureHandlerRootView>
       <Swipeable renderLeftActions={foo} onSwipeableOpen={Navigate}>
+        <HeaderProfile />
         <View style={styles.mainContainer}>
-          <Text>this is the perfil of {route.params.name}</Text>
+          <ImageProfile />
+          <ButtonsProfile />
+          <ValuesProfile />
+          <BioProfile />
+          <VideosProfile />
         </View>
       </Swipeable>
     </GestureHandlerRootView>
@@ -30,8 +42,15 @@ const Profile = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   mainContainer: {
     height: '100%',
-    backgroundColor: '#ff0'
+    backgroundColor: '#fff',
+    display: 'flex',
+    alignItems: 'center'
   },
+  slide: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
 })
 
 export default Profile;
