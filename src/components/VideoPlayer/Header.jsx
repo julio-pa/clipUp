@@ -1,12 +1,26 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 const Header = () => {
   return (
-    <View>
-      <Text>Siguiendo | Para ti</Text>
+    <View style={styles.header}>
+      <Text style={styles.text}>Siguiendo | Para ti</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  header:{
+    backgroundColor: '#000',
+    height: 56,
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  text:{
+    color: '#fff'
+  }
+})
 
 export default Header;

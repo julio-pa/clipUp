@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
-import { Video, AVPlaybackStatus } from 'expo-av';
-import demoVid from '../../img/demoClipup.mp4'
 import NavBar from '../NavBar/NavBar';
+import ElementPlayer from './ElementPlayer';
 
 
 const VideoPlayer = ({ navigation }) => {
@@ -19,19 +18,12 @@ const VideoPlayer = ({ navigation }) => {
     )
   }
 
+
+
   return (
     <GestureHandlerRootView style={styles.mainContainer}>
       <Swipeable renderRightActions={foo} onSwipeableOpen={Navigate} >
-        <View style={styles.video}>
-          <Video
-            style={styles.video}
-            source={demoVid}
-            useNativeControls
-            resizeMode="cover"
-            isLooping
-            isMuted
-          />
-        </View>
+        <ElementPlayer />
         <NavBar />
       </Swipeable>
     </GestureHandlerRootView>
@@ -40,14 +32,9 @@ const VideoPlayer = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    display: 'flex',
-    backgroundColor: '#ff0',
+    flex: 1,
     height: '100%',
     width: '100%',
-  },
-  video: {
-    width: '100%',
-    height: '90%',
   },
 })
 

@@ -4,14 +4,17 @@ import { StyleSheet, Text, View } from 'react-native';
 const NavBar = () => {
   return (
     <View style={styles.main}>
-      <Text>Physical</Text>
+      <Text style={styles.icon}>Physical</Text>
     </View>
   );
 }
 const styles = StyleSheet.create({
   main:{
-    backgroundColor: '#f00',
-    marginTop:0
+    backgroundColor: '#000',
+    height: '10%',
+  },
+  icon:{
+    color:'#fff',
   }
 })
 

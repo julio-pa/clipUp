@@ -8,12 +8,11 @@ import VideoPlayer from '../components/VideoPlayer/VideoPlayer';
 const Stack = createNativeStackNavigator()
 const AppRoutes = () => {
   return (
-      <Stack.Navigator
-      >
+      <Stack.Navigator>
         <Stack.Screen
           name="Home"
           component={VideoPlayer}
-          options={{ headerTitle: () => <Header /> }}
+          options={{ headerTitle: () => <Header/> }}
         />
         <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
