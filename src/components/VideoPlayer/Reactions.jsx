@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   actions:{
     display: 'flex',
     alignItems: 'center',
+    marginBottom: 5
   },
   textActions:{
     color:'#fff'
