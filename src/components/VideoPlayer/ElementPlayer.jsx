@@ -6,6 +6,8 @@ import demoVid from '../../vid/demoClipup.mp4';
 import { FontAwesome5 } from '@expo/vector-icons';
 import Reactions from './Reactions';
 import Description from './Description';
+import Sound from './Sound';
+import Header from './Header';
 
 const ElementPlayer = () => {
 
@@ -17,6 +19,7 @@ const ElementPlayer = () => {
     <>
 
       <View style={styles.cont}>
+
         <Video
           ref={video}
           style={styles.video}
@@ -36,7 +39,9 @@ const ElementPlayer = () => {
           <FontAwesome5 name="play" size={70} color="white" />
         </TouchableOpacity>
         <Reactions />
-        <Description/>
+        <Description />
+        <Sound />
+        <Header />
       </View>
     </>
   );
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
   },
   video: {
     width: '100%',
-    height: 610,
+    height: 690,
   },
   buttons: {
     flexDirection: 'row',

@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   actions:{
     display: 'flex',
     alignItems: 'center',
-    marginBottom: 5
+    marginBottom: 15
   },
   textActions:{
     color:'#fff'

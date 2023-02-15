@@ -12,7 +12,7 @@ const AppRoutes = () => {
         <Stack.Screen
           name="Home"
           component={VideoPlayer}
-          options={{ headerTitle: () => <Header/> }}
+          options={{headerShown:false}}
         />
         <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
