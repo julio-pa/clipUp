@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   imageProfile: {
-    width: 200,
-    height: 200,
-    borderRadius: 200,
+    width: 150,
+    height: 150,
+    borderRadius: 150,
     borderWidth: 2,
     borderColor: '#e3e3e3',
     borderStyle: 'solid',
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     marginBottom: 18
   },
   imgSrc: {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
     resizeMode: 'contain'
   }
 })
