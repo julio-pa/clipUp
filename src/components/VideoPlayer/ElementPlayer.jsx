@@ -7,8 +7,9 @@ import Reactions from './Reactions';
 import Description from './Description';
 import Sound from './Sound';
 import Header from './Header';
+import NavBar from '../NavBar/NavBar';
 
-const ElementPlayer = ({ source }) => {
+const ElementPlayer = ({ source, avatar, userName }) => {
 
   const video = useRef()
 
@@ -18,26 +19,27 @@ const ElementPlayer = ({ source }) => {
     <>
 
       <View style={styles.cont}>
-            <Video
-              ref={video}
-              style={styles.video}
-              source={source}
-              resizeMode="cover"
-              isLooping
-              onPlaybackStatusUpdate={status => { setStatus(() => status); }}
-              icon={{
-                play: <FontAwesome5 name="play" size={24} color="black" />
-              }}
-            />
+        <Video
+          ref={video}
+          style={styles.video}
+          source={source}
+          resizeMode="cover"
+          isLooping
+          onPlaybackStatusUpdate={status => { setStatus(() => status); }}
+          icon={{
+            play: <FontAwesome5 name="play" size={24} color="black" />
+          }}
+        />
         <TouchableOpacity style={pause ? styles.pause : styles.buttons} onPress={() => {
           status.isPlaying ? video.current.pauseAsync() : video.current.playAsync(); setPause(!pause)
         }}>
           <FontAwesome5 name="play" size={70} color="white" />
         </TouchableOpacity>
-        <Reactions />
-        <Description />
+        <Reactions avatar={avatar} />
+        <Description user={userName} />
         <Sound />
         <Header />
+        <NavBar />
       </View>
     </>
   );

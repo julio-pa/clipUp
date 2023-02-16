@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import avatar from '../../img/Logo-Dev.png'
 
-const Reactions = () => {
+
+const Reactions = ({avatar}) => {
 
   const [like, setLike] = useState(false);
 
@@ -48,11 +48,13 @@ const styles = StyleSheet.create({
     width: 60,
     borderRadius: 50,
     marginBottom: 15,
+    overflow: 'hidden'
   },
   img:{
-    width: 50,
-    height: 50,
-    resizeMode: 'contain'
+    width: 60,
+    height: 60,
+    resizeMode: 'cover',
+    overflow: 'hidden'
   }
 })
 

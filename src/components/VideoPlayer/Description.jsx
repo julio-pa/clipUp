@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Description = () => {
+const Description = ({user}) => {
   return (
     <View style={styles.description}>
-      <Text style={styles.userText}>@Username</Text>
+      <Text style={styles.userText}>{user}</Text>
       <Text style={styles.descText}>lorem ipsum dolor sit amet gat rowlas</Text>
       <Text style={styles.hashText}>#Hastags #interface #Leo</Text>
     </View>

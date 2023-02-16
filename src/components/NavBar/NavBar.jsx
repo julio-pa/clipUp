@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     backgroundColor: '#000',
-    height: '10%',
+    height: 73,
   },
   icon: {
     color: '#fff',
