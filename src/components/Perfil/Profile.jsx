@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#fff',
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   slide: {
     display: 'flex',

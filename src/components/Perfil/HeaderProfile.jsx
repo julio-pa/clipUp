@@ -18,12 +18,12 @@ const HeaderProfile = () => {
 const styles = StyleSheet.create({
   userProfile: {
     width: '100%',
-    height: 120,
+    height: 70,
     backgroundColor: '#fff',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'flex-end'
   },
 })
 
