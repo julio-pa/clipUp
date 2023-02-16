@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Video, AVPlaybackStatus } from 'expo-av';
-import demoVid from '../../vid/demoClipup.mp4';
 //videoplayer
 import { FontAwesome5 } from '@expo/vector-icons';
 import Reactions from './Reactions';
@@ -9,7 +8,7 @@ import Description from './Description';
 import Sound from './Sound';
 import Header from './Header';
 
-const ElementPlayer = () => {
+const ElementPlayer = ({ source }) => {
 
   const video = useRef()
 
@@ -19,20 +18,17 @@ const ElementPlayer = () => {
     <>
 
       <View style={styles.cont}>
-
-        <Video
-          ref={video}
-          style={styles.video}
-          source={demoVid}
-          resizeMode="cover"
-          isLooping
-          isMuted
-          shouldPlay={false}
-          onPlaybackStatusUpdate={status => setStatus(() => status)}
-          icon={{
-            play: <FontAwesome5 name="play" size={24} color="black" />
-          }}
-        />
+            <Video
+              ref={video}
+              style={styles.video}
+              source={source}
+              resizeMode="cover"
+              isLooping
+              onPlaybackStatusUpdate={status => { setStatus(() => status); }}
+              icon={{
+                play: <FontAwesome5 name="play" size={24} color="black" />
+              }}
+            />
         <TouchableOpacity style={pause ? styles.pause : styles.buttons} onPress={() => {
           status.isPlaying ? video.current.pauseAsync() : video.current.playAsync(); setPause(!pause)
         }}>
@@ -59,7 +55,7 @@ const styles = StyleSheet.create({
   },
   video: {
     width: '100%',
-    height: 690,
+    height: 660,
   },
   buttons: {
     flexDirection: 'row',

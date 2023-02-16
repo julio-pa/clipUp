@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
 import NavBar from '../NavBar/NavBar';
 import ElementPlayer from './ElementPlayer';
 import { FontAwesome } from '@expo/vector-icons';
+import { contentData } from '../../mock/mockData';
 
 
 const VideoPlayer = ({ navigation }) => {
 
   const Navigate = () => {
-    navigation.navigate('Profile', { name: 'Frank' })
+    navigation.navigate('Profile', { name: 'Frank' });
   }
   const foo = () => {
     return (
@@ -19,14 +20,18 @@ const VideoPlayer = ({ navigation }) => {
     )
   }
 
-
-
   return (
     <GestureHandlerRootView style={styles.mainContainer}>
       <Swipeable renderRightActions={foo} onSwipeableOpen={Navigate} >
-        <ElementPlayer />
+      <FlatList 
+        data={contentData}
+        renderItem={({item}) => <ElementPlayer  source={item.video}/>}
+        keyExtractor={item => item.id}
+      />
+        {/* <ElementPlayer /> */}
         <NavBar />
       </Swipeable>
+      <StatusBar style={{color: '#fff'}}></StatusBar>
     </GestureHandlerRootView>
   );
 }

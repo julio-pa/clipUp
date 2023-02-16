@@ -13,9 +13,9 @@ const Reactions = () => {
       <View style={styles.avatar}>
         <Image source={avatar} style={styles.img} />
       </View>
-      <Actions icon={<AntDesign onPress={() => setLike(!like)}  name="heart" size={50} color={like ? 'red' : 'white'} />}/>
-      <Actions icon={<FontAwesome name="commenting" size={50} color="white" />}/>
-      <Actions icon={<FontAwesome name="share" size={50} color="white" />}/>
+      <Actions icon={<AntDesign onPress={() => setLike(!like)}  name="heart" size={35} color={like ? 'red' : 'white'} />}/>
+      <Actions icon={<FontAwesome name="commenting" size={35} color="white" />}/>
+      <Actions icon={<FontAwesome name="share" size={35} color="white" />}/>
     </View>
   );
 }

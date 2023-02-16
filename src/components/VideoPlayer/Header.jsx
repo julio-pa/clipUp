@@ -13,7 +13,7 @@ const Header = () => {
 const styles = StyleSheet.create({
   header:{
     position: 'absolute',
-    top:25,
+    top:7,
     backgroundColor: 'transparent',
     height: 56,
     width: '100%',
