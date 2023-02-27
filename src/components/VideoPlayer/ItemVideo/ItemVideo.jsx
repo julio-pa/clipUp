@@ -10,19 +10,17 @@ const ItemVideo = ({source,avatar, userName}) => {
   const video = useRef()
 
   const [status, setStatus] = useState({});
-  const [pause, setPause] = useState(false);
+  const [pause, setPause] = useState(status.isPlaying);
   return (
-    <View style={styles.cont}>
+    <>
       <Video
         ref={video}
         style={styles.video}
         source={source}
         resizeMode="cover"
+        // shouldPlay
         isLooping
         onPlaybackStatusUpdate={status => { setStatus(() => status); }}
-        icon={{
-          play: <FontAwesome5 name="play" size={24} color="black" />
-        }}
       />
       <TouchableOpacity style={pause ? styles.pause : styles.buttons} onPress={() => {
         status.isPlaying ? video.current.pauseAsync() : video.current.playAsync(); setPause(!pause)
@@ -32,14 +30,11 @@ const ItemVideo = ({source,avatar, userName}) => {
       <Reactions avatar={avatar} />
       <Description user={userName} />
       <Sound />
-    </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  cont:{
-    // height: 660
-  },
   video: {
     width: '100%',
     height: 660
