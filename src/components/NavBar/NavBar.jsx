@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     backgroundColor: '#000',
     height: 73,
+    width:'100%',
   },
   icon: {
     color: '#fff',

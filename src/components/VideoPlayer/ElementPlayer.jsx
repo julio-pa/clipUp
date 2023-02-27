@@ -1,82 +1,50 @@
-import React, { useRef, useState } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { Video, AVPlaybackStatus } from 'expo-av';
+import React from 'react';
+import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
 //videoplayer
-import { FontAwesome5 } from '@expo/vector-icons';
-import Reactions from './Reactions';
-import Description from './Description';
-import Sound from './Sound';
 import Header from './Header';
 import NavBar from '../NavBar/NavBar';
+import ItemVideo from './ItemVideo/ItemVideo';
+import { contentData } from '../../mock/mockData';
 
-const ElementPlayer = ({ source, avatar, userName }) => {
+const ElementPlayer = () => {
 
-  const video = useRef()
 
-  const [status, setStatus] = useState({});
-  const [pause, setPause] = useState(false);
   return (
     <>
 
       <View style={styles.cont}>
-        <Video
-          ref={video}
-          style={styles.video}
-          source={source}
-          resizeMode="cover"
-          isLooping
-          onPlaybackStatusUpdate={status => { setStatus(() => status); }}
-          icon={{
-            play: <FontAwesome5 name="play" size={24} color="black" />
-          }}
+        <FlatList
+          data={contentData}
+          renderItem={({ item }) => <ItemVideo
+            source={item.video}
+            avatar={item.img}
+            userName={item.userName}
+          />}
+          keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
+          decelerationRate='normal'
+          snapToOffsets={[660]}
+          style={styles.scroll}
         />
-        <TouchableOpacity style={pause ? styles.pause : styles.buttons} onPress={() => {
-          status.isPlaying ? video.current.pauseAsync() : video.current.playAsync(); setPause(!pause)
-        }}>
-          <FontAwesome5 name="play" size={70} color="white" />
-        </TouchableOpacity>
-        <Reactions avatar={avatar} />
-        <Description user={userName} />
-        <Sound />
         <Header />
-        <NavBar />
       </View>
+      <NavBar />
     </>
   );
 }
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
     backgroundColor: '#ff0',
-    height: '100%',
     width: '100%',
+    
   },
-  cont: {
-
+  scroll: {
+    display: 'flex',
+    height: 660
   },
-  video: {
-    width: '100%',
-    height: 660,
-  },
-  buttons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    top: '40%',
-    right: '40%',
-    opacity: 1,
-  },
-  pause: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    top: '40%',
-    right: '40%',
-    opacity: 0
-  }
 })
 
 export default ElementPlayer;
