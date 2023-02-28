@@ -10,15 +10,16 @@ const ItemVideo = ({source,avatar, userName}) => {
   const video = useRef()
 
   const [status, setStatus] = useState({});
-  const [pause, setPause] = useState(status.isPlaying);
+  const [pause, setPause] = useState(false);
   return (
     <>
       <Video
         ref={video}
         style={styles.video}
-        source={source}
+        source={{
+          uri: `${source}`
+        }}
         resizeMode="cover"
-        // shouldPlay
         isLooping
         onPlaybackStatusUpdate={status => { setStatus(() => status); }}
       />

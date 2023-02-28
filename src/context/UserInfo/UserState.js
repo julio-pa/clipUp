@@ -1,4 +1,6 @@
+import { child, get } from 'firebase/database'
 import React, { useReducer } from 'react';
+import { dbref } from '../../../firebase';
 import UserContext from './UserContext';
 import UserReducer from './UserReducer'
 
@@ -8,13 +10,22 @@ const UserState = (props) => {
     selectedUser: null
   }
 
-  const [state, dispatch] = useReducer(UserReducer,intialState)
+  const [state, dispatch] = useReducer(UserReducer, intialState)
 
-  const getUsers = async () => { 
-    const res = await d //hacer llamada a la API
+  const getUsers = async () => {
+    let res
+    await get(child(dbref, '/users')).then((snapshot) => {
+      if (snapshot.exists()) {
+        res = snapshot.val()
+      } else {
+        console.log('No data available')
+      }
+    }).catch((error) => {
+      console.error(error)
+    })
     dispatch({
       type: 'GET_USERS',
-      payload: res.data
+      payload: res
     })
   }
 
@@ -24,9 +35,9 @@ const UserState = (props) => {
       type: 'GET_PROFILE',
       payload: res.data
     })
-   }
+  }
 
-  return(
+  return (
     <UserContext.Provider value={{
       users: state.users,
       selectedUser: state.selectedUser,

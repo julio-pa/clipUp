@@ -11,7 +11,7 @@ const Reactions = ({avatar}) => {
   return (
     <View style={styles.reactions}>
       <View style={styles.avatar}>
-        <Image source={avatar} style={styles.img} />
+        <Image source={{uri: `${avatar}`}} style={styles.img} />
       </View>
       <Actions icon={<AntDesign onPress={() => setLike(!like)}  name="heart" size={35} color={like ? 'red' : 'white'} />}/>
       <Actions icon={<FontAwesome name="commenting" size={35} color="white" />}/>

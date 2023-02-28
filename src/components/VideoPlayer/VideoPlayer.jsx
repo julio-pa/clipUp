@@ -3,17 +3,10 @@ import { StatusBar, StyleSheet, View } from 'react-native';
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
 import ElementPlayer from './ElementPlayer';
 import { FontAwesome } from '@expo/vector-icons';
-import UserContext from '../../context/UserInfo/UserContext';
 
 
 const VideoPlayer = ({ navigation }) => {
-  //TODO: acceder al contexto
-  const { users, getUsers } = useContext(UserContext);
-
-  useEffect(() => {
-    getUsers()
-  }, []);
-
+  
   const Navigate = () => {
     navigation.navigate('Profile');
   }

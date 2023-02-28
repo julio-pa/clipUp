@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
 //videoplayer
 import Header from './Header';
 import NavBar from '../NavBar/NavBar';
 import ItemVideo from './ItemVideo/ItemVideo';
-import { contentData } from '../../mock/mockData';
+// import { contentData } from '../../mock/mockData';
+import UserContext from '../../context/UserInfo/UserContext';
 
 const ElementPlayer = () => {
+  //TODO: acceder al contexto
+  const { users, getUsers } = useContext(UserContext);
+
+  useEffect(() => {
+    getUsers()
+  }, []);
 
 
   return (
@@ -14,7 +21,7 @@ const ElementPlayer = () => {
 
       <View style={styles.cont}>
         <FlatList
-          data={contentData}
+          data={users}
           renderItem={({ item }) => <ItemVideo
             source={item.video}
             avatar={item.img}
@@ -23,7 +30,7 @@ const ElementPlayer = () => {
           keyExtractor={item => item.id}
           showsVerticalScrollIndicator={false}
           decelerationRate='normal'
-          snapToOffsets={[660]}
+          snapToInterval={660}
           style={styles.scroll}
         />
         <Header />
