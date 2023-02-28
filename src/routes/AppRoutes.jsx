@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import HeaderProfile from '../components/Perfil/HeaderProfile';
+import CameraScreen from '../components/camera/Camera';
 import Profile from '../components/Perfil/Profile';
-import Header from '../components/VideoPlayer/Header';
 import VideoPlayer from '../components/VideoPlayer/VideoPlayer';
+
 
 
 const Stack = createNativeStackNavigator()
@@ -18,6 +18,11 @@ const AppRoutes = () => {
       <Stack.Screen
         name="Profile"
         component={Profile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen 
+        name="Camera"
+        component={CameraScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

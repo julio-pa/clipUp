@@ -30,10 +30,19 @@ const UserState = (props) => {
   }
 
   const getProfile = async (id) => {
-    const res = await d //Obtener un unico usuario por id
+    let res
+    await get(child(dbref, '/users/' + id)).then((snapshot) => {
+      if (snapshot.exists()) {
+        res = snapshot.val()
+      } else {
+        console.log('No data available')
+      }
+    }).catch((error) => {
+      console.error(error)
+    })//Obtener un unico usuario por id
     dispatch({
       type: 'GET_PROFILE',
-      payload: res.data
+      payload: res
     })
   }
 

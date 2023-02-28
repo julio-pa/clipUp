@@ -1,10 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 //videoplayer
 import Header from './Header';
 import NavBar from '../NavBar/NavBar';
 import ItemVideo from './ItemVideo/ItemVideo';
-// import { contentData } from '../../mock/mockData';
 import UserContext from '../../context/UserInfo/UserContext';
 
 const ElementPlayer = () => {
@@ -18,7 +17,6 @@ const ElementPlayer = () => {
 
   return (
     <>
-
       <View style={styles.cont}>
         <FlatList
           data={users}
@@ -26,6 +24,7 @@ const ElementPlayer = () => {
             source={item.video}
             avatar={item.img}
             userName={item.userName}
+            desc={item.desc}
           />}
           keyExtractor={item => item.id}
           showsVerticalScrollIndicator={false}
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#ff0',
+    backgroundColor: '#000',
     width: '100%',
     
   },

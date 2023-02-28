@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Description = ({user}) => {
+const Description = ({user, desc}) => {
   return (
     <View style={styles.description}>
       <Text style={styles.userText}>{user}</Text>
-      <Text style={styles.descText}>lorem ipsum dolor sit amet gat rowlas</Text>
+      <Text style={styles.descText}>{desc}</Text>
       <Text style={styles.hashText}>#Hastags #interface #Leo</Text>
     </View>
   );
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     columnGap: 3,
     alignItems:'flex-start',
     left: 10,
-    bottom:100,
+    bottom:60,
   },
   userText:{
     color: '#fff',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler';
 import { Octicons } from '@expo/vector-icons';
@@ -8,9 +8,11 @@ import ButtonsProfile from './ButtonsProfile';
 import ValuesProfile from './ValuesProfile';
 import BioProfile from './BioProfile';
 import VideosProfile from './VideosProfile';
+import UserContext from '../../context/UserInfo/UserContext';
 
 
 const Profile = ({ navigation, route }) => {
+
 
   const Navigate = () => {
     navigation.goBack()
@@ -26,7 +28,7 @@ const Profile = ({ navigation, route }) => {
   return (
     <GestureHandlerRootView>
       <Swipeable renderLeftActions={foo} onSwipeableOpen={Navigate}>
-        <HeaderProfile />
+        <HeaderProfile userName='Frank wolf' />
         <View style={styles.mainContainer}>
           <ImageProfile />
           <ButtonsProfile />

@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     columnGap: 3,
     alignItems: 'center',
     left: 10,
-    bottom: 20,
+    bottom: 3,
     justifyContent: 'space-between'
   },
   soundText: {

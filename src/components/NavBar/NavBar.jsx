@@ -4,15 +4,20 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const NavBar = () => {
+
+  const navigation = useNavigation();
   return (
     <View style={styles.main}>
       <Sections icon={<Entypo name="home" size={30} color="white" />} text='Inicio' />
       <Sections icon={<Ionicons name="people" size={30} color="white" />} text='Amigos' />
-      <View style={styles.record}>
-        <Entypo name="plus" size={24} color="black" />
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
+        <View style={styles.record}>
+          <Entypo name="plus" size={24} color="black" />
+        </View>
+      </TouchableOpacity>
       <Sections icon={<MaterialCommunityIcons name="message-minus-outline" size={30} color="white" />} text='Bandeja' />
       <Sections icon={<Octicons name="person" size={30} color="white" />} text='Perfil' />
     </View>
@@ -25,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     backgroundColor: '#000',
     height: 73,
-    width:'100%',
+    width: '100%',
   },
   icon: {
     color: '#fff',
@@ -38,14 +43,14 @@ const styles = StyleSheet.create({
   textSections: {
     color: '#fff'
   },
-  record:{
+  record: {
     backgroundColor: '#fff',
     width: 55,
     height: 40,
     borderRadius: 12,
     borderLeftColor: '#66C0D0',
     borderLeftWidth: 5,
-    borderRightColor:'#DE3C62',
+    borderRightColor: '#DE3C62',
     borderRightWidth: 5,
     display: 'flex',
     alignItems: 'center',

@@ -1,12 +1,12 @@
 import { Video } from 'expo-av';
 import React, { useRef, useState } from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import Description from './Description';
 import Reactions from './Reactions';
 import Sound from './Sound';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-const ItemVideo = ({source,avatar, userName}) => {
+const ItemVideo = ({source,avatar, userName, desc}) => {
   const video = useRef()
 
   const [status, setStatus] = useState({});
@@ -17,7 +17,7 @@ const ItemVideo = ({source,avatar, userName}) => {
         ref={video}
         style={styles.video}
         source={{
-          uri: `${source}`
+          uri: source
         }}
         resizeMode="cover"
         isLooping
@@ -29,7 +29,7 @@ const ItemVideo = ({source,avatar, userName}) => {
         <FontAwesome5 name="play" size={70} color="white" />
       </TouchableOpacity>
       <Reactions avatar={avatar} />
-      <Description user={userName} />
+      <Description user={userName} desc={desc} />
       <Sound />
     </>
   );
